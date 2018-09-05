@@ -1,0 +1,17 @@
+README.md
+setup.py
+scripts/__init__.py
+scripts/template
+src/__init__.py
+src/folder_1/__init__.py
+src/folder_1/test_src.py
+src/folder_2/__init__.py
+template.egg-info/PKG-INFO
+template.egg-info/SOURCES.txt
+template.egg-info/dependency_links.txt
+template.egg-info/requires.txt
+template.egg-info/top_level.txt
+test/__init__.py
+test/test_stub.py
+test_util/__init__.py
+test_util/path_util.py
