@@ -1,8 +1,8 @@
 [![Build Status](https://travis-ci.org/Zethson/MHC-1-Binding-Predictor-iGEM2018-Tuebingen.svg?branch=master)](https://travis-ci.org/Zethson/MHC-1-Binding-Predictor-iGEM2018-Tuebingen)
 [![codecov](https://codecov.io/gh/Zethson/MHC-1-Binding-Predictor-iGEM2018-Tuebingen/branch/master/graph/badge.svg)](https://codecov.io/gh/Zethson/MHC-1-Binding-Predictor-iGEM2018-Tuebingen)
 
-# Python projecet template
-Person template for python based projects. 
+# MHC-I binding predictor
+Predicts whether or not an epitope is an MHC-I binder.
 
 Quick Setup for developers
 =====
