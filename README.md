@@ -6,15 +6,15 @@ Person template for python based projects.
 
 Quick Setup for developers
 =====
-1. <code>git clone https://github.com/Zethson/PythonProjectTemplate</code>
+1. <code>git clone https://github.com/Zethson/MHC-1-Binding-Predictor-iGEM2018-Tuebingen</code>
 2. <code>pip python setup.py install</code>
-3. <code>template</code>
+3. <code>mhc-1</code>
 
 Usage
 =====
 ## The CLI - Command Line Interface
 ```bash
-> python template.py
+> mhc-1
 ```
 
 Examples
@@ -27,5 +27,8 @@ MIT
 
 Authors
 =====
+Team iGEM 2018 Tübingen
 Lukas Heumos
+Steffen Lemke
+Alexander Röhl
 

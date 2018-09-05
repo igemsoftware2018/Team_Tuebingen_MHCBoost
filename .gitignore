@@ -108,3 +108,5 @@ ENV/
 .idea/
 
 template.egg-info/
+
+build/
