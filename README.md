@@ -27,8 +27,8 @@ MIT
 
 Authors
 =====
-Team iGEM 2018 Tübingen
-Lukas Heumos
-Steffen Lemke
+Team iGEM 2018 Tübingen    
+Lukas Heumos    
+Steffen Lemke    
 Alexander Röhl
 
