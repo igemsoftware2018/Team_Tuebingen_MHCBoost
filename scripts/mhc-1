@@ -3,12 +3,12 @@ import logging
 
 import click
 
-from src.folder_1.test_src import some_function
+from src.folder_1.test_src import read_training_data
 
 console = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 console.setFormatter(formatter)
-LOG = logging.getLogger("test_src")
+LOG = logging.getLogger("MHC-I")
 LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
@@ -38,5 +38,4 @@ ___  ___ _   _ _____       __   ______ _           _ _              ______      
                                                               __/ |                                           
                                                              |___/                                            
     """)
-    some_function()
-    template()
+    read_training_data()

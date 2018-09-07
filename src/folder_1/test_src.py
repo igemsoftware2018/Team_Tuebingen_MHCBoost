@@ -8,11 +8,10 @@ LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
 
-def some_function():
-    LOG.info("Running some_function")
-    print("whatsup")
-    LOG.info("Successfully run some_function")
-
-    with open("data/some_data.txt", 'r') as f:
+def read_training_data():
+    LOG.info("Reading in training data")
+    with open("data/training_data/iedb_A*01:01_9_only.txt", 'r') as f:
         read_data = f.read()
         print(read_data)
+    LOG.info("Successfully read in training data")
+
