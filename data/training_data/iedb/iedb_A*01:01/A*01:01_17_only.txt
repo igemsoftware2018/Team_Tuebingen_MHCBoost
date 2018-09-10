@@ -1,0 +1,2 @@
+species	mhc	peptide_length	sequence	inequality	meas
+human	HLA-A*01:01	17	QFLKFSLPFPFLYKFLL	=	33749.69505
