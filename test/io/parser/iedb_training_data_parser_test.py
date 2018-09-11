@@ -6,7 +6,7 @@ from src.io.parser.iedb_training_data_parser import read_iedb_training_data
 from test_util.path_util import pf
 
 WD = os.path.dirname(__file__)
-PATH_MINIMAL_FILE = pf(WD, "data/training_data/iedb/A*01:01_9_only_minimal.txt")
+PATH_MINIMAL_FILE = pf(WD, "../../data/training_data/iedb/A*01:01_9_only_minimal.txt")
 
 
 class TestLint(unittest.TestCase):
