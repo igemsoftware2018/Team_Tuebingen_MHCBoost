@@ -107,6 +107,10 @@ ENV/
 # pycharm
 .idea/
 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
 template.egg-info/
 
 build/

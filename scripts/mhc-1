@@ -3,7 +3,7 @@ import logging
 
 import click
 
-from src.folder_1.test_src import read_training_data
+from src.io.parser.iedb_training_data_parser import read_training_data
 
 console = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -38,4 +38,5 @@ ___  ___ _   _ _____       __   ______ _           _ _              ______      
                                                               __/ |                                           
                                                              |___/                                            
     """)
-    read_training_data()
+    peptides = read_training_data("data/training_data/iedb/A*01:01/A*01:01_9_only.txt")
+    print(peptides)
