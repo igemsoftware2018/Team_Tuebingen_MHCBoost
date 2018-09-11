@@ -11,7 +11,7 @@ LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
 
-def read_training_data(file_path):
+def read_iedb_training_data(file_path):
     LOG.info("Reading in training data")
     peptides = []
 
