@@ -17,6 +17,7 @@ def read_iedb_training_data(file_path):
 
     with open(file_path, 'r') as file:
         csv_reader = csv.reader(file, delimiter='\t')
+        next(file) # skip the header
         for row in csv_reader:
             species = row[0]
             mhc_allele = row[1]
@@ -24,7 +25,7 @@ def read_iedb_training_data(file_path):
             sequence = row[3]
             inequality = row[4]
             meas = row[5]
-            peptide = Peptide(species, mhc_allele, length, sequence, inequality, meas)
+            peptide = Peptide(species, mhc_allele, int(length), sequence, inequality, float(meas))
 
             peptides.append(peptide)
 
