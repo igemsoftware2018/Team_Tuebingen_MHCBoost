@@ -1,2 +1,2 @@
 ignore:
-  - "src/model/encoding"  # ignore all static encodings
+  - "model/encoding"  # ignore all static encodings
