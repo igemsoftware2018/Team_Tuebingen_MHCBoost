@@ -20,7 +20,9 @@ Usage
 
 Examples
 =====
--
+```bash
+> mhc-1 -t data/training_data/iedb/A*01:01/A*01:01_9_only.txt
+```
 
 License
 =====

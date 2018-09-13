@@ -11,7 +11,7 @@ LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
 
-def k_fold_cross_validation(peptides: np.array, predictions: np.array, classifier, splits):
+def k_fold_crossvalidation(peptides, predictions, classifier, splits):
     """
     performs k-fold-cross-validation
 
@@ -21,7 +21,7 @@ def k_fold_cross_validation(peptides: np.array, predictions: np.array, classifie
         in blomap encoded oneletterCode of aminoacids for peptides
     predictions : numpy-array containing Integers
         0 for nonbinder 1 for binder
-    classifier : XGBClassifier()
+    classifier : classifier of choice
         project's classifier model (gradient boosted tree)
     splits : Integer
         number of subsets created by k-fold
@@ -31,7 +31,7 @@ def k_fold_cross_validation(peptides: np.array, predictions: np.array, classifie
     -
 
     """
-    LOG.info("Performing kfold validation on: " + str(splits) + " parts")
+    LOG.info("Performing " + str(splits) + "-fold validation")
     k_fold_results = cross_val_score(classifier, np.asarray(peptides), np.asarray(predictions), cv=splits, scoring="roc_auc")
     LOG.info("KFold ROC_AUC: %.2f%% Standard deviation: %.2f%%" % (k_fold_results.mean() * 100, k_fold_results.std()))
     LOG.info("Successfully finished performing kfold validation")
