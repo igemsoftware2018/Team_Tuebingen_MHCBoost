@@ -16,18 +16,32 @@ LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
 
-@click.group()
-@click.option(
-    '-v', '--verbose',
-    is_flag=True,
-    default=False,
-    help="Verbose output (print debug statements)"
-)
-def template(verbose):
-    if verbose:
-        LOG.debug("Verbose output enabled")
-    else:
-        LOG.debug("Verbose output disabled")
+@click.command()
+@click.option('-t', '--training_dataset_path', prompt='training dataset file path?',
+              help='file path to the training dataset', required=True)
+@click.option('-p', '--dataset_to_predict_path', prompt='prediction dataset file path?',
+              help='file path to the dataset to predict', required=True)
+@click.option('-o', '--predicted_dataset_path', prompt='predicted dataset output file path?',
+              help='file path to the dataset already predicted', required=True)
+@click.option('-s/-v', '--silent/--verbose', default=True)
+def parse_CLI_start_tool(training_dataset_path, dataset_to_predict_path, predicted_dataset_path, silent):
+    LOG.info("LOG Start")
+
+    LOG.debug("Parsing commmandline parameters")
+
+    LOG.info("Using training input file: " + training_dataset_path)
+    LOG.info("Predicting for file: " + dataset_to_predict_path)
+    LOG.info("Output will be written to " + predicted_dataset_path)
+
+    LOG.debug("Received commandline parameters")
+
+    try:
+        peptides = read_iedb_training_data(training_dataset_path)
+        encoded_aminoacids, binding_values = encode_training_data(peptides, extended_blomap_dict, "extended blomap")
+        gbtrees_train(encoded_aminoacids, binding_values, silent)
+
+    except FileNotFoundError:
+        LOG.error("Training dataset not found!")
 
 
 if __name__ == '__main__':
@@ -41,13 +55,8 @@ ___  ___ _   _ _____       __   ______ _           _ _              ______      
                                                               __/ |                                           
                                                              |___/                                            
     """)
+    parse_CLI_start_tool()
 
-    try:
-        peptides = read_iedb_training_data("data/training_data/iedb/A*01:01/A*01:01_9_only.txt")
-        encoded_aminoacids, binding_values = encode_training_data(peptides, extended_blomap_dict, "extended blomap")
-        gbtrees_train(encoded_aminoacids, binding_values)
 
-    except FileNotFoundError:
-        LOG.error("Training dataset not found!")
 
 
