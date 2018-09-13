@@ -17,7 +17,7 @@ def read_iedb_training_data(file_path):
 
     with open(file_path, 'r') as file:
         csv_reader = csv.reader(file, delimiter='\t')
-        next(file) # skip the header
+        next(file)  # skip the header
         for row in csv_reader:
             species = row[0]
             mhc_allele = row[1]

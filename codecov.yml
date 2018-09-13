@@ -1,0 +1,2 @@
+ignore:
+  - "model/encoding"  # ignore all static encodings

@@ -7,7 +7,6 @@ class Peptide:
         self.sequence = sequence
         self.inequality = inequality
         self.meas = meas
-        print(self.meas)
         self.binding = float(self.meas) <= 500
 
     def __str__(self):

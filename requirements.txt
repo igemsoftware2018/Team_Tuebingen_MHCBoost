@@ -1,1 +1,9 @@
+matplotlib
+numpy
+scikit-learn
+pandas
+scipy
+xgboost
 click
+graphviz
+pytest
