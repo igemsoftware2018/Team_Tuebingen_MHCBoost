@@ -3,8 +3,10 @@ import logging
 
 import click
 
+from src.algorithms.ml.encoder import encode_training_data
 from src.algorithms.ml.gbtrees.gbtrees_training import gbtrees_train
 from src.io.parser.iedb_training_data_parser import read_iedb_training_data
+from src.model.encoding.extended_blomap import extended_blomap_dict
 
 console = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -42,7 +44,8 @@ ___  ___ _   _ _____       __   ______ _           _ _              ______      
 
     try:
         peptides = read_iedb_training_data("data/training_data/iedb/A*01:01/A*01:01_9_only.txt")
-        gbtrees_train(peptides)
+        encoded_aminoacids, binding_values = encode_training_data(peptides, extended_blomap_dict, "extended blomap")
+        gbtrees_train(encoded_aminoacids, binding_values)
 
     except FileNotFoundError:
         LOG.error("Training dataset not found!")
