@@ -1,7 +1,7 @@
 # blomap (1. - 5.) columns taken from here: https://www.worldscientific.com/doi/abs/10.1142/9781860947322_0014
 # 6.- 11. columns taken from here: https://www.ncbi.nlm.nih.gov/Class/Structure/aa/aa_explorer.cgi
 # respectively: flexibility, weight, iep, hydrophobicity, polarity, area
-blomap = {
+extended_blomap_dict = {
     'A': [-0.57, 0.39, -0.96, -0.61, -0.69, 1, 71, 6.0, 0.806, 0.0, 10.0],
     'R': [-0.40, -0.83, -0.61, 1.26, -0.28, 4, 156, 10.8, 0.000, 52.0, 32.6],
     'N': [-0.70, -0.63, -1.47, 1.02, 1.06, 3, 114, 5.4, 0.448, 3.4, 20.4],
