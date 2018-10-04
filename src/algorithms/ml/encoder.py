@@ -29,7 +29,7 @@ def encode_training_data(peptides, encoding, encoding_name):
     df_encoded_aminoacids = pd.DataFrame(encoded_aminoacids)
     encoded_aminoacids = df_encoded_aminoacids.iloc[:, :].values
 
-    LOG.info("Successfully training datasets into " + encoding_name + " values")
+    LOG.info("Successfully encoded training datasets into " + encoding_name + " values")
 
     return encoded_aminoacids, nd_bindings
 
