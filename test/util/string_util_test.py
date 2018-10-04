@@ -24,8 +24,8 @@ class StringUtilTest(unittest.TestCase):
         """
         input_string = "CSDETTLYYLTGHMLDMY"
         k_mers = ["CSDETTLYY",
-                  "SDETTLYY",
-                  "DETTLYYL",
+                  "SDETTLYYL",
+                  "DETTLYYLT",
                   "ETTLYYLTG",
                   "TTLYYLTGH",
                   "TLYYLTGHM",
