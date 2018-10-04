@@ -4,8 +4,10 @@ import logging
 import click
 
 from src.algorithms.ml.encoder import encode_training_data
+from src.algorithms.ml.gbtrees.gbtrees_predict import predict_epitopes
 from src.algorithms.ml.gbtrees.gbtrees_training import gbtrees_train
 from src.io.parser.iedb_training_data_parser import read_iedb_training_data
+from src.io.parser.input_protein_parser import read_protein
 from src.model.encoding.extended_blomap import extended_blomap_dict
 
 console = logging.StreamHandler()
@@ -36,13 +38,15 @@ def parse_CLI_start_tool(training_dataset_path, dataset_to_predict_path, predict
     try:
         peptides = read_iedb_training_data(training_dataset_path)
         encoded_aminoacids, binding_values = encode_training_data(peptides, extended_blomap_dict, "extended blomap")
-        gbtrees_train(encoded_aminoacids, binding_values, silent)
+        classifier = gbtrees_train(encoded_aminoacids, binding_values, silent)
+
+        peptides = read_protein(dataset_to_predict_path, 9)
+        predict_epitopes(classifier, peptides, predicted_dataset_path)
 
     except FileNotFoundError:
         LOG.error("Training dataset not found!")
-    except:
+    except Exception:
         LOG.error("Unknown error occured! Aborting...")
-        SystemExit
 
 
 if __name__ == '__main__':

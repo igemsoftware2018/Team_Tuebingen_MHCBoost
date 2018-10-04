@@ -14,7 +14,7 @@ class StringUtilTest(unittest.TestCase):
         """
         input_string = "ACGT"
         k_mers = ["AC", "CG", "GT"]
-        self.assertEqual(k_mers, generate_k_mer(2, input_string))
+        self.assertEqual(k_mers, generate_k_mer(input_string, 2))
 
     def test_9_mer(self):
         """ Check if the generated 9-mer match
@@ -33,5 +33,5 @@ class StringUtilTest(unittest.TestCase):
                   "YYLTGHMLD",
                   "YLTGHMLDM",
                   "LTGHMLDMY"]
-        self.assertEqual(k_mers, generate_k_mer(9, input_string))
+        self.assertEqual(k_mers, generate_k_mer(input_string, 9))
 

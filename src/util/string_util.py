@@ -1,4 +1,4 @@
-def generate_k_mer(k, input_string):
+def generate_k_mer(input_string, k):
     k_mers = []
     limit = len(input_string) - k + 1
 
