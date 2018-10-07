@@ -1,6 +1,6 @@
 import logging
 
-from sklearn.grid_search import RandomizedSearchCV
+from sklearn.model_selection import RandomizedSearchCV
 
 from src.algorithms.ml.gbtrees.search_parameters import search_parameters_dict
 
@@ -33,11 +33,5 @@ def perform_randomized_search(encoded_amino_acids, binding_values, classifier, s
     grid = RandomizedSearchCV(classifier,  cv=3, verbose=verbose_level, param_distributions=search_parameters_dict)
     grid.fit(encoded_amino_acids, binding_values)
     LOG.info("Best: %f using %s" % (grid.best_score_, grid.best_params_))
-    means = grid.cv_results_['mean_test_score']
-    stds = grid.cv_results_['std_test_score']
-    params = grid.cv_results_['params']
-
-    for mean, stdev, param in zip(means, stds, params):
-        LOG.info("%f (%f) with: %r" % (mean, stdev, param))
 
     LOG.info("Successfully finished performing randomized search")
