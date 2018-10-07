@@ -176,7 +176,7 @@ def create_plots(data):
     ----------
     data : list
         contains position in peptide,
-        wether it belongs to binder or nonbinder peptide,
+        whether it belongs to binder or nonbinder peptide,
         iep, hydrophobicity, and quantity of each aminoacid
 
     Returns

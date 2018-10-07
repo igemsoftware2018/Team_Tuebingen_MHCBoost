@@ -3,7 +3,6 @@ import pandas as pd
 
 from numpy import array
 
-
 console = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 console.setFormatter(formatter)
@@ -12,7 +11,11 @@ LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
 
-def encode_training_data(peptides, encoding, encoding_name):
+def encode_training_peptides(peptides, encoding, encoding_name):
+    """
+    encodes given oneLetterCode of aminoacids into the passed encoding
+    suitable for training datasets
+    """
     LOG.info("Encoding training datasets into " + encoding_name + " values")
     nd_peptides, nd_bindings = training_data_to_nd_arrays(peptides)
 
@@ -52,3 +55,27 @@ def training_data_to_nd_arrays(peptides):
 
     return nd_peptides, nd_bindings
 
+
+def encode_peptides_to_predict(peptides, encoding, encoding_name):
+    """
+    encodes given oneLetterCode of aminoacids into the passed encoding
+    suitable for datasets on which predictions are performed
+    """
+    LOG.info("Encoding peptides to predict into " + encoding_name + " features")
+
+    encoded_aminoacids = []
+    for peptide_seq in peptides:
+        properties = []
+        for aminoacid in peptide_seq:
+            if isinstance(aminoacid, str):
+                properties.extend(encoding[aminoacid.upper()])
+            else:
+                properties.append(aminoacid)
+        encoded_aminoacids.append(properties)
+
+    df_encoded_aminoacids = pd.DataFrame(encoded_aminoacids)
+    encoded_aminoacids = df_encoded_aminoacids.iloc[:, :].values
+
+    LOG.info("Successfully encoded peptides to predict into " + encoding_name + " features")
+
+    return encoded_aminoacids

@@ -26,5 +26,7 @@ def gbtrees_train(encoded_aminoacids, binding_values, silent):
 
     # perform_grid_search(encoded_aminoacids, binding_values, classifier, silent)
 
+    return classifier
+
 
 
