@@ -6,18 +6,9 @@ from src.model.encoding import extended_blomap
 def plot_anchor_positions_scatter(peptides, predictions):
     """
     creates plots of anchor positions (aminoacid no.2, 9) of peptides
-
-    Parameters
-    ----------
-    peptides : numpy-array containing Strings
-        one letter Code of aminoacids for peptides
-    predictions : numpy-array containing Integers
-        0 for nonbinder 1 for binder
-
-    Returns
-    -------
-    -
-
+    :param peptides:
+    :param predictions:
+    :return:
     """
     peptides = peptides.tolist()
     predictions = predictions.tolist()

@@ -7,9 +7,8 @@ import click
 from src.algorithms.ml.encoder import encode_training_peptides
 from src.algorithms.ml.gbtrees.gbtrees_predict import predict_epitopes
 from src.algorithms.ml.gbtrees.gbtrees_training import gbtrees_train
+from src.io.cli.input_to_peptides_converter import convert_input_to_peptides
 from src.io.parser.iedb_training_data_parser import read_iedb_training_data
-from src.io.parser.input_peptides_file_parser import parse_peptides
-from src.io.parser.input_protein_parser import parse_protein
 from src.model.encoding.extended_blomap import extended_blomap_dict
 from test_util.path_util import pf
 
@@ -44,8 +43,6 @@ def parse_CLI_start_tool(training_dataset_path,
                          silent):
     LOG.debug("Parsing commmandline parameters")
 
-    print(IEDB_PATH)
-
     if training_dataset_path is not None:
         final_training_dataset_path = training_dataset_path
     else:
@@ -64,7 +61,7 @@ def parse_CLI_start_tool(training_dataset_path,
         classifier = gbtrees_train(encoded_aminoacids, binding_values, silent)
 
         # Predict on the passed dataset
-        peptides_to_predict = parse_peptides(dataset_to_predict_path)
+        peptides_to_predict = convert_input_to_peptides(dataset_to_predict_path, peptide_length)
         predict_epitopes(classifier, peptides_to_predict, predicted_dataset_path)
 
     except FileNotFoundError:

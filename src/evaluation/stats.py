@@ -13,18 +13,10 @@ LOG.setLevel(logging.INFO)
 def stats_evaluation(set_tested, set_predicted):
     """
     evaluates predictions compared to known results by creating a confusion matrix
-
-    Parameters
-    ----------
-    set_tested : numpy-array containing Integer
-        known classifications
-    set_predicted : numpy-array containing Integer
-        predicted classifications
-
-    Returns
-    -------
-    -
-
+    calculates various different statistical properties
+    :param set_tested: known classification
+    :param set_predicted: predicted classification
+    :return:
     """
     LOG.info("Creating confusion matrix")
     cm = confusion_matrix(set_tested, set_predicted)

@@ -14,6 +14,13 @@ LOG.setLevel(logging.INFO)
 
 
 def predict_epitopes(classifier, prediction_data, predicted_peptides_output_path):
+    """
+    performs a prediction on a given dataset
+    :param classifier:
+    :param prediction_data:
+    :param predicted_peptides_output_path:
+    :return:
+    """
     peptides = prepare_prediction_data(prediction_data)
     peptides = encode_peptides_to_predict(peptides, extended_blomap_dict, "blomap")
 
@@ -27,7 +34,8 @@ def predict_epitopes(classifier, prediction_data, predicted_peptides_output_path
 def prepare_prediction_data(peptides):
     """
     prepares peptides for subsequent prediction -> np array of lists of single amino acids
-
+    :param peptides:
+    :return:
     """
     aminoacid_separated_peptides = []
     for peptide in peptides:
