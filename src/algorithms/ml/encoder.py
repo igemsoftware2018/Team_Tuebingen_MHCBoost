@@ -11,13 +11,17 @@ LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
 
-def encode_training_peptides(peptides, encoding, encoding_name):
+def encode_training_peptides(amino_acids, encoding, encoding_name):
     """
     encodes given oneLetterCode of aminoacids into the passed encoding
     suitable for training datasets
+    :param amino_acids: 
+    :param encoding: dict -> encoding
+    :param encoding_name: 
+    :return: 
     """
     LOG.info("Encoding training datasets into " + encoding_name + " values")
-    nd_peptides, nd_bindings = training_data_to_nd_arrays(peptides)
+    nd_peptides, nd_bindings = training_data_to_nd_arrays(amino_acids)
 
     encoded_aminoacids = []
     for peptide_seq in nd_peptides:
@@ -38,6 +42,12 @@ def encode_training_peptides(peptides, encoding, encoding_name):
 
 
 def training_data_to_nd_arrays(peptides):
+    """
+    transforms the given peptides into lists of single letter amino acids
+    appends binding values
+    :param peptides:
+    :return: peptides split into single letter amino acids, binding values
+    """
     # separate all sequences of the peptides into single letters
     peptides_listed = []
     all_bindings = []
@@ -60,6 +70,10 @@ def encode_peptides_to_predict(peptides, encoding, encoding_name):
     """
     encodes given oneLetterCode of aminoacids into the passed encoding
     suitable for datasets on which predictions are performed
+    :param peptides:
+    :param encoding: usually blomap
+    :param encoding_name:
+    :return:
     """
     LOG.info("Encoding peptides to predict into " + encoding_name + " features")
 

@@ -15,42 +15,20 @@ LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
 
-def random_dataset_split_eval(peptides, predictions, classifier, early_stopping_rounds, test_size_percent):
+def random_dataset_split_eval(encoded_amino_acids, binding_values, classifier, early_stopping_rounds, test_size_percent):
     """
-    randomly splits training set and trains classifier (ic50 regression may or may not be included here),
+    randomly splits training set and trains classifier
     starts stats evaluation of predictions compared to known results,
     and starts auc-plot, tree-plot, feature-importance-plot
-
-    Parameters
-    ----------
-    peptides : numpy-array containing Floats
-        in blomap encoded oneletterCode of aminoacids for peptides
-    predictions : numpy-array containing Integers
-        0 for nonbinder 1 for binder
-    peptides_balanced : numpy-array containing Floats
-        in blomap encoded oneletterCode of aminoacids for peptides after subsampling
-    predictions_balanced : numpy-array containing Integers
-        0 for nonbinder 1 for binder after subsampling
-    classifier : XGBClassifier()
-        project's classifier model (gradient boosted tree)
-    regression : XGBRegressor()
-        regression to compute ic50-values
-    check_use_ic50s : boolean
-        boolean to decide wether to use ic50s or not
-    early_stopping_rounds : Integer
-        early-stopping parameter
-    test_size_percent : Float
-        value between 0 and 1, decides on the percentage size
-        of the test set
-
-
-    Returns
-    -------
-    -
-
+    :param encoded_amino_acids:
+    :param binding_values:
+    :param classifier:
+    :param early_stopping_rounds: early stopping value passed to the classifier
+    :param test_size_percent:
+    :return:
     """
     LOG.info("Evaluating a random subset of size: " + str(test_size_percent) + " of the training data")
-    peptides_train, peptides_test, classification_train, classification_test = train_test_split(peptides, predictions,
+    peptides_train, peptides_test, classification_train, classification_test = train_test_split(encoded_amino_acids, binding_values,
                                                                                                 test_size=test_size_percent)
 
     eval_set = [(peptides_train, classification_train), (peptides_test, classification_test)]

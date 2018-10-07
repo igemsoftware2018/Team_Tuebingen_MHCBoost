@@ -15,16 +15,8 @@ LOG.setLevel(logging.INFO)
 def plot_feature_importance(classifier):
     """
     plots importance of most important features
-
-    Parameters
-    ----------
-    classifier : XGBClassifier()
-        project's classifier model (gradient boosted tree)
-
-    Returns
-    -------
-    -
-
+    :param classifier:
+    :return:
     """
     LOG.info("Setting up feature importance plot")
     plt.clf()
@@ -37,16 +29,8 @@ def plot_feature_importance(classifier):
 def plot_learning_tree(classifier):
     """
     plots tree model of classifier
-
-    Parameters
-    ----------
-    classifier : XGBClassifier()
-        project's classifier model (gradient boosted tree)
-
-    Returns
-    -------
-    -
-
+    :param classifier:
+    :return:
     """
     LOG.info("Setting up learning tree plot")
     plt.clf()

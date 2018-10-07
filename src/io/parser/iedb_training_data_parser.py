@@ -12,6 +12,11 @@ LOG.setLevel(logging.INFO)
 
 
 def read_iedb_training_data(file_path):
+    """
+    parses iedb files
+    :param file_path: path pointing towards the iedb file
+    :return: list of peptides, not yet encoded
+    """
     LOG.info("Reading in training data")
     peptides = []
 

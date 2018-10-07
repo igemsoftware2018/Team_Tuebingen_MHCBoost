@@ -11,17 +11,9 @@ LOG.setLevel(logging.INFO)
 
 def plot_auc_curve(model):
     """
-    plots auc-curve of model's eval-metric
-
-    Parameters
-    ----------
-    model : XGBClassifier()
-        project's classifier model (gradient boosted tree)
-
-    Returns
-    -------
-    -
-
+    writes labeled peptides to the passed path
+    :param model: trained model
+    :return:
     """
     LOG.info("Setting up AUC plot")
     # retrieve performance metrics

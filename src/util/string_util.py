@@ -9,8 +9,15 @@ LOG.setLevel(logging.INFO)
 
 
 def generate_k_mer(input_string, k):
+    """
+    generates k-mers of a given input strings
+    :param input_string: string which is split into k-mers
+    :param k: length of the k-mers
+    :return: list of generated k-mers
+    """
     LOG.debug("Generating " + str(k) + "mer of " + input_string)
     k_mers = []
+    k = int(k)
     limit = len(input_string) - k + 1
 
     k_mer = ""

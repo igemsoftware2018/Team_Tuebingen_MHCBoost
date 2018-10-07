@@ -2,6 +2,8 @@ import logging
 
 from sklearn.model_selection import GridSearchCV
 
+from src.algorithms.ml.gbtrees.search_parameters import search_parameters_dict
+
 console = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 console.setFormatter(formatter)
@@ -31,20 +33,14 @@ def perform_grid_search(peptides, predictions, classifier, silent):
 
     """
     LOG.info("Performing grid search")
-    parameters = {
-        'min_child_weight': [1, 2, 3, 4],
-        'colsample_bytree': [0.5, 0.6, 0.7],
-        'gamma': [0, 1, 2, 3, 4, 5],
-        'n_estimators': [75, 80, 85, 90, 95, 100]
-    }
 
-    LOG.info("Grid search parameters: " + str(parameters))
+    LOG.info("Grid search parameters: " + str(search_parameters_dict))
 
     verbose_level = 0
     if not silent:
         verbose_level = 2
 
-    grid = GridSearchCV(classifier, parameters, cv=3, verbose=verbose_level)
+    grid = GridSearchCV(classifier, search_parameters_dict, cv=3, verbose=verbose_level)
     grid.fit(peptides, predictions, eval_metric="auc")
     LOG.info("Best: %f using %s" % (grid.best_score_, grid.best_params_))
     means = grid.cv_results_['mean_test_score']
