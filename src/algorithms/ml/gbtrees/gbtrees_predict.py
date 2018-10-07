@@ -14,18 +14,14 @@ LOG.setLevel(logging.INFO)
 
 
 def predict_epitopes(classifier, prediction_data, predicted_peptides_output_path):
-    LOG.info("Preparing predictions of training data")
     peptides = prepare_prediction_data(prediction_data)
     peptides = encode_peptides_to_predict(peptides, extended_blomap_dict, "blomap")
-    LOG.info("Successfully prepared predictions of training data")
 
     LOG.info("Predicting data")
     prediction = classifier.predict(peptides)
     LOG.info("Successfully predicted data")
 
     write_labeled_outputfile(prediction_data, predicted_peptides_output_path, prediction)
-    # prediction data should be the peptides
-
 
 
 def prepare_prediction_data(peptides):

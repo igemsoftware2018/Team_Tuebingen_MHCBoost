@@ -2,7 +2,7 @@
 import os
 import unittest
 
-from src.io.parser.input_protein_parser import read_protein
+from src.io.parser.input_protein_parser import parse_protein
 from test_util.path_util import pf
 
 WD = os.path.dirname(__file__)
@@ -14,8 +14,8 @@ class InputProteinParserTest(unittest.TestCase):
                          "YYLTGHMLD", "YLTGHMLDM", "LTGHMLDMY"]
 
     def test_non_file_input(self):
-        self.assertEqual(self.expected_peptides, read_protein("CSDETTLYYLTGHMLDMY", 9))
+        self.assertEqual(self.expected_peptides, parse_protein("CSDETTLYYLTGHMLDMY", 9))
 
     def test_file_input(self):
-        self.assertEqual(self.expected_peptides, read_protein(PATH_MINIMAL_FILE, 9))
+        self.assertEqual(self.expected_peptides, parse_protein(PATH_MINIMAL_FILE, 9))
 
