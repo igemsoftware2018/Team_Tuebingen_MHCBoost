@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from src.io.parser.input_peptides_file_parser import read_peptides
+from src.io.parser.input_peptides_file_parser import parse_peptides
 from test_util.path_util import pf
 
 WD = os.path.dirname(__file__)
@@ -24,4 +24,4 @@ class InputPeptidesFileParserTest(unittest.TestCase):
                              "ISDEFMWRY",
                              "ITDFNIDTY"]
 
-        self.assertEqual(expected_peptides, read_peptides(PATH_MINIMAL_FILE))
+        self.assertEqual(expected_peptides, parse_peptides(PATH_MINIMAL_FILE))

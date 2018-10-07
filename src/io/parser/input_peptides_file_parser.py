@@ -8,7 +8,7 @@ LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
 
-def read_peptides(input_file):
+def parse_peptides(input_file):
     all_peptides = [line.rstrip() for line in open(input_file)]
 
     return all_peptides

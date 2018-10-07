@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import logging
+import os
 
 import click
 
@@ -7,8 +8,10 @@ from src.algorithms.ml.encoder import encode_training_peptides
 from src.algorithms.ml.gbtrees.gbtrees_predict import predict_epitopes
 from src.algorithms.ml.gbtrees.gbtrees_training import gbtrees_train
 from src.io.parser.iedb_training_data_parser import read_iedb_training_data
+from src.io.parser.input_peptides_file_parser import parse_peptides
 from src.io.parser.input_protein_parser import parse_protein
 from src.model.encoding.extended_blomap import extended_blomap_dict
+from test_util.path_util import pf
 
 console = logging.StreamHandler()
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -17,19 +20,38 @@ LOG = logging.getLogger("MHC-I")
 LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
+WD = os.path.dirname(__file__)
+IEDB_PATH = pf(WD, "../data/training_data/iedb/")
+
 
 @click.command()
-@click.option('-t', '--training_dataset_path', prompt='training dataset file path?',
-              help='file path to the training dataset', required=True)
+@click.option('-t', '--training_dataset_path',
+              help='file path to the training dataset', required=False)
 @click.option('-p', '--dataset_to_predict_path', prompt='prediction dataset file path?',
               help='file path to the dataset to predict', required=True)
 @click.option('-o', '--predicted_dataset_path', prompt='predicted dataset output file path?',
               help='file path to the dataset already predicted', required=True)
+@click.option('-a', '--allele', prompt='allele to predict for?',
+              help='allele for which a prediction should be done', required=True)
+@click.option('-l', '--peptide_length', prompt='peptide length?',
+              help='length of the peptides', required=True)
 @click.option('-s/-v', '--silent/--verbose', default=True)
-def parse_CLI_start_tool(training_dataset_path, dataset_to_predict_path, predicted_dataset_path, silent):
+def parse_CLI_start_tool(training_dataset_path,
+                         dataset_to_predict_path,
+                         predicted_dataset_path,
+                         allele,
+                         peptide_length,
+                         silent):
     LOG.debug("Parsing commmandline parameters")
 
-    LOG.info("Using training input file: " + training_dataset_path)
+    print(IEDB_PATH)
+
+    if training_dataset_path is not None:
+        final_training_dataset_path = training_dataset_path
+    else:
+        final_training_dataset_path = IEDB_PATH + allele + "/" + allele + "_" + peptide_length + "_only.txt"
+
+    LOG.info("Using training input file: " + final_training_dataset_path)
     LOG.info("Predicting for file: " + dataset_to_predict_path)
     LOG.info("Output will be written to " + predicted_dataset_path)
 
@@ -37,18 +59,19 @@ def parse_CLI_start_tool(training_dataset_path, dataset_to_predict_path, predict
 
     try:
         # Train a classifier on passed peptides
-        training_peptides = read_iedb_training_data(training_dataset_path)
+        training_peptides = read_iedb_training_data(final_training_dataset_path)
         encoded_aminoacids, binding_values = encode_training_peptides(training_peptides, extended_blomap_dict, "extended blomap")
         classifier = gbtrees_train(encoded_aminoacids, binding_values, silent)
 
         # Predict on the passed dataset
-        peptides_to_predict = parse_protein(dataset_to_predict_path, 9)
+        peptides_to_predict = parse_peptides(dataset_to_predict_path)
         predict_epitopes(classifier, peptides_to_predict, predicted_dataset_path)
 
     except FileNotFoundError:
         LOG.error("Training dataset not found!")
-    except Exception:
+    except Exception as e:
         LOG.error("Unknown error occured! Aborting...")
+        LOG.error("Exception: ", e)
 
 
 if __name__ == '__main__':
