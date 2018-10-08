@@ -20,7 +20,7 @@ LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
 WD = os.path.dirname(__file__)
-IEDB_PATH = pf(WD, "../data/training_data/iedb/")
+IEDB_PATH = pf(WD, "../../data/training_data/iedb/")
 
 
 @click.command()
@@ -65,7 +65,8 @@ def parse_CLI_start_tool(training_dataset_path,
         predict_epitopes(classifier, peptides_to_predict, predicted_dataset_path)
 
     except FileNotFoundError:
-        LOG.error("Training dataset not found!")
+        LOG.error("Training dataset not found! If this error occurred in the writing process,"
+                  " please make sure that you have access!")
     except Exception as e:
         LOG.error("Unknown error occured! Aborting...")
         LOG.error("Exception: ", e)
