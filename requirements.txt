@@ -7,3 +7,4 @@ xgboost
 click
 graphviz
 pytest
+bayesian-optimization
