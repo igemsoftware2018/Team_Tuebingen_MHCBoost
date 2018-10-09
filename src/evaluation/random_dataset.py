@@ -15,7 +15,7 @@ LOG.addHandler(console)
 LOG.setLevel(logging.INFO)
 
 
-def random_dataset_split_eval(encoded_amino_acids, binding_values, classifier, early_stopping_rounds, test_size_percent):
+def random_dataset_split_eval(classifier, early_stopping_rounds, peptides_test, classification_test, test_size_percent):
     """
     randomly splits training set and trains classifier
     starts stats evaluation of predictions compared to known results,
@@ -28,12 +28,8 @@ def random_dataset_split_eval(encoded_amino_acids, binding_values, classifier, e
     :return:
     """
     LOG.info("Evaluating a random subset of size: " + str(test_size_percent) + " of the training data")
-    peptides_train, peptides_test, classification_train, classification_test = train_test_split(encoded_amino_acids, binding_values,
-                                                                                                test_size=test_size_percent)
 
-    eval_set = [(peptides_train, classification_train), (peptides_test, classification_test)]
 
-    classifier.fit(np.array(peptides_train), np.array(classification_train), eval_metric=['auc'], eval_set=eval_set)
 
     classification_pred = classifier.predict(peptides_test)
     LOG.info("Successfully evaluated a random subset of the training data")

@@ -23,11 +23,9 @@ def convert_input_to_peptides(input_peptides, peptide_length):
             content = file.readline()
             if len(content) > 15:  # length of read content longer than 15 -> full protein as input
                 peptides = parse_protein(input_peptides, peptide_length)
-                LOG.info("Successfully parsed protein")
                 return peptides
             else:
                 peptides = parse_peptides(input_peptides)
-                LOG.info("Successfully parsed protein")
                 return peptides
     except FileNotFoundError:
         LOG.debug("Input protein was not a file. Handling it as a string")
