@@ -1,0 +1,6 @@
+species	mhc	peptide_length	sequence	inequality	meas
+human	HLA-A*02:05	8	MWAQDAAM	=	16966.41531
+human	HLA-A*02:05	8	TLGIVCPI	=	20000
+human	HLA-A*02:05	8	AEMWAQDA	>	70422.53521
+human	HLA-A*02:05	8	EMWAQDAA	>	70422.53521
+human	HLA-A*02:05	8	WAQDAAMY	>	70422.53521

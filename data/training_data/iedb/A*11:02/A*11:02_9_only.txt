@@ -1,0 +1,15 @@
+species	mhc	peptide_length	sequence	inequality	meas
+human	HLA-A*11:02	9	SVYGDTLEK	=	2
+human	HLA-A*11:02	9	HTMLCMCCK	=	5
+human	HLA-A*11:02	9	VVYRDSIPH	=	5
+human	HLA-A*11:02	9	ATLQDIVLH	=	12
+human	HLA-A*11:02	9	SIPHAACHK	=	15
+human	HLA-A*11:02	9	CIDFYSRIR	=	27
+human	HLA-A*11:02	9	GQCHSCCNR	=	64
+human	HLA-A*11:02	9	GLYNLLIRC	=	188
+human	HLA-A*11:02	9	TEVFEFAFK	=	257
+human	HLA-A*11:02	9	LIRCLRCQK	=	375
+human	HLA-A*11:02	9	FKDLFVVYR	=	500
+human	HLA-A*11:02	9	YNLLIRCLR	=	529
+human	HLA-A*11:02	9	RCQKPLNPA	=	563
+human	HLA-A*11:02	9	VYCKTVLEL	=	563

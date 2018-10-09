@@ -1,0 +1,4 @@
+species	mhc	peptide_length	sequence	inequality	meas
+human	HLA-A*02:05	11	STLPETTVVRR	>	10000
+human	HLA-A*02:05	11	TVKSMILHEIL	=	10765.17686
+human	HLA-A*02:05	11	AEMWAQDAAMY	>	70422.53521
