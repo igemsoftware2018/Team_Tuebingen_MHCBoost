@@ -1,0 +1,4 @@
+species	mhc	peptide_length	sequence	inequality	meas
+human	HLA-B*15:03	15	LKFSLPFPFLYKFLL	=	9.1704
+human	HLA-B*15:03	15	GQQRSTLERTSKASL	=	8325.035638
+human	HLA-B*15:03	15	QRSTLERTSKASLER	>	47222.22222

@@ -1,0 +1,5 @@
+species	mhc	peptide_length	sequence	inequality	meas
+human	HLA-B*44:02	12	LVGKLNWASQIY	=	1658.049036
+human	HLA-B*44:02	12	SLVWAPLILAYF	=	16481.57144
+human	HLA-B*44:02	12	DPHGPVQLSYYD	=	38517.66955
+human	HLA-B*44:02	12	IPQSLDSYWTSL	>	58227.8481
