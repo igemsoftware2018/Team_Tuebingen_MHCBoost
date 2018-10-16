@@ -8,7 +8,9 @@ Gradient boosted trees based predictor for MHC Class I epitope binding predictio
 
 How to install
 =====
-1. <code>git clone https://github.com/Zethson/MHC-1-Binding-Predictor-iGEM2018-Tuebingen</code>
+Python 3.7 is a requirement!
+Support with 3.6 or lower is experimental!
+1. <code>git clone https://github.com/igemsoftware2018/Team_Tuebingen_MHCBoost</code>
 2. <code>python setup.py install</code>
 3. <code>mhc-1</code>
 
