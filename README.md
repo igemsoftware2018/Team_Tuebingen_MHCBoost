@@ -43,7 +43,7 @@ Simply provide the answers to the questions asked by our tool.
 ```
 Alternatively, provide input parameters when starting the tool.
 ```bash
-> mhc-1 -p/examples/example_input.txt -o /home/mypc/Desktop/output.txt -a A*02:01 -l 9
+> mhc-1 -p examples/example_input.txt -o /home/mypc/Desktop/output.txt -a A*02:01 -l 9
 ```
 Supported Alleles
 =====
