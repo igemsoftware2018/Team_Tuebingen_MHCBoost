@@ -3,7 +3,8 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/Zethson/MHC-1-Binding-Predictor-iGEM2018-Tuebingen?branch=development)](https://bettercodehub.com/)
 
 # MHCBoost
-Gradient boosted trees based predictor for MHC Class I epitope binding prediction.
+Gradient boosted trees based predictor for MHC Class I epitope binding prediction. MHCBoost is also part of BERT, a very powerful deimmunization workflow.
+
 
 How to install
 =====
@@ -107,7 +108,7 @@ HLA-C15:02
 Performance
 =====
 MHCBoost has an 5-fold crossvalidated average AUC of 0.899 on the IEDB dataset.
-The performance on each allele was compared to the state of the art NetMHCPan. Please refer to [].
+The performance on each allele was compared to the state of the art NetMHCPan. Please refer to [Results](https://github.com/Zethson/MHC-1-Binding-Predictor-iGEM2018-Tuebingen/blob/development/results/MHCBoost_vs_NetMHCPan.pdf)
 
 License
 =====
