@@ -405,5 +405,6 @@ setup(
                 ('data/training_data/iedb/C*12:03', ['data/training_data/iedb/C*12:03/C*12:03_9_only.txt']),
                 ('data/training_data/iedb/C*14:02', ['data/training_data/iedb/C*14:02/C*14:02_9_only.txt']),
                 ('data/training_data/iedb/C*15:02', ['data/training_data/iedb/C*15:02/C*15:02_9_only.txt']),
+                ('examples/example_input.txt', ['examples/example_input.txt'])
                 ]
 )
