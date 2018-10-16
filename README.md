@@ -3,7 +3,8 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/Zethson/MHC-1-Binding-Predictor-iGEM2018-Tuebingen?branch=development)](https://bettercodehub.com/)
 
 # MHCBoost
-Gradient boosted trees based predictor for MHC Class I epitope binding prediction.
+Gradient boosted trees based predictor for MHC Class I epitope binding prediction. MHCBoost is also part of BERT, a very powerful deimmunization workflow.
+
 
 How to install
 =====
