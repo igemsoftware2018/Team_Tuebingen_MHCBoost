@@ -1,0 +1,4 @@
+species	mhc	peptide_length	sequence	inequality	meas
+human	HLA-A*66:01	11	RRLTVCGGIMF	>	5000
+human	HLA-A*66:01	11	SSCSSCPLSKI	>	5000
+human	HLA-A*66:01	11	GSPGDLQTLAL	=	53630.29002
