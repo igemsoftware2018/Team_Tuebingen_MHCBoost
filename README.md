@@ -107,7 +107,7 @@ HLA-C15:02
 Performance
 =====
 MHCBoost has an 5-fold crossvalidated average AUC of 0.899 on the IEDB dataset.
-The performance on each allele was compared to the state of the art NetMHCPan. Please refer to [].
+The performance on each allele was compared to the state of the art NetMHCPan. Please refer to [Results](https://github.com/Zethson/MHC-1-Binding-Predictor-iGEM2018-Tuebingen/blob/development/results/MHCBoost_vs_NetMHCPan.pdf)
 
 License
 =====
